@@ -43,13 +43,13 @@ import ugh.dl.DocStruct;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
 import ugh.dl.Prefs;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
-import ugh.exceptions.TypeNotAllowedAsChildException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.fileformats.mets.MetsMods;
-import ugh.fileformats.mets.MetsModsImportExport;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.ReadException;
+import ugh.dl.exceptions.TypeNotAllowedAsChildException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.fileformats.mets.MetsMods;
+import ugh.dl.fileformats.mets.MetsModsImportExport;
 
 public class ExportNewspaperBatchTask extends EmptyTask {
     private static final Logger logger = LogManager.getLogger(ExportNewspaperBatchTask.class);

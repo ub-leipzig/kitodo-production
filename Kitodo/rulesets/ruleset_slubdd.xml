@@ -3303,7 +3303,7 @@
 			================================================================================ -->
 
         <METS>
-            <class>ugh.fileformats.mets.MetsModsImportExport</class>
+            <class>ugh.dl.fileformats.mets.MetsModsImportExport</class>
 
             <!-- Additional namespaces used in the mapping below -->
             <NamespaceDefinition>

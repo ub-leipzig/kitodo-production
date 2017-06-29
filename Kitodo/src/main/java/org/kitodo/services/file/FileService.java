@@ -42,11 +42,11 @@ import org.kitodo.services.ServiceManager;
 import org.kitodo.services.data.RulesetService;
 
 import ugh.dl.Fileformat;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.WriteException;
-import ugh.fileformats.excel.RDFFile;
-import ugh.fileformats.mets.MetsMods;
-import ugh.fileformats.mets.XStream;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.WriteException;
+import ugh.dl.fileformats.excel.RDFFile;
+import ugh.dl.fileformats.mets.MetsMods;
+import ugh.dl.fileformats.mets.XStream;
 
 public class FileService {
 

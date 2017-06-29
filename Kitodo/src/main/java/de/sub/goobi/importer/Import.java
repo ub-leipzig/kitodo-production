@@ -23,12 +23,12 @@ import org.apache.logging.log4j.Logger;
 import org.apache.myfaces.custom.fileupload.UploadedFile;
 import org.kitodo.data.database.beans.Task;
 
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
-import ugh.exceptions.TypeNotAllowedAsChildException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.exceptions.WriteException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.ReadException;
+import ugh.dl.exceptions.TypeNotAllowedAsChildException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.WriteException;
 
 /**
  * Import von Metadaten aus upgeloadeten Dateien

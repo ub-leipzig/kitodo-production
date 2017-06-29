@@ -24,7 +24,7 @@ import ugh.dl.DocStruct;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
 import ugh.dl.Prefs;
-import ugh.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
 
 public class UghHelper {
     private static final Logger logger = LogManager.getLogger(UghHelper.class);

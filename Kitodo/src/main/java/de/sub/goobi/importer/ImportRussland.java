@@ -31,10 +31,10 @@ import ugh.dl.Fileformat;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
 import ugh.dl.Person;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
-import ugh.exceptions.WriteException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.ReadException;
+import ugh.dl.exceptions.WriteException;
 
 /**
  * Die Klasse Schritt ist ein Bean für einen einzelnen Schritt mit dessen
@@ -133,7 +133,7 @@ public class ImportRussland {
     }
 
     private void analyzeParagraph(List<String> inListe)
-            throws ugh.exceptions.MetadataTypeNotAllowedException, WrongImportFileException {
+            throws ugh.dl.exceptions.MetadataTypeNotAllowedException, WrongImportFileException {
         if (inListe.size() == 0) {
             return;
         }

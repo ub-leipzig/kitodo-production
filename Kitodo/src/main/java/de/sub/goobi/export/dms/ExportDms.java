@@ -43,11 +43,11 @@ import ugh.dl.DigitalDocument;
 import ugh.dl.DocStruct;
 import ugh.dl.Fileformat;
 import ugh.dl.Metadata;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.exceptions.WriteException;
-import ugh.fileformats.excel.RDFFile;
-import ugh.fileformats.mets.MetsModsImportExport;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.WriteException;
+import ugh.dl.fileformats.excel.RDFFile;
+import ugh.dl.fileformats.mets.MetsModsImportExport;
 
 public class ExportDms extends ExportMets {
     private static final Logger logger = LogManager.getLogger(ExportDms.class);

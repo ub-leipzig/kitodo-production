@@ -28,12 +28,12 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import ugh.dl.DocStruct;
-import ugh.dl.Metadata;
-import ugh.dl.MetadataType;
-import ugh.dl.Prefs;
-import ugh.exceptions.DocStructHasNoTypeException;
-import ugh.exceptions.MetadataTypeNotAllowedException;
+import ugh1.dl.DocStruct;
+import ugh1.dl.Metadata;
+import ugh1.dl.MetadataType;
+import ugh1.dl.Prefs;
+import ugh.dl.exceptions.DocStructHasNoTypeException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
 
 /**
  * The class UGHUtils provides utility methods used in the plug-in.

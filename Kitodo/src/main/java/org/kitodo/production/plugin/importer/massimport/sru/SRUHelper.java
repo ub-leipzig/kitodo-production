@@ -40,11 +40,11 @@ import ugh.dl.DocStruct;
 import ugh.dl.DocStructType;
 import ugh.dl.Fileformat;
 import ugh.dl.Prefs;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.fileformats.mets.XStream;
-import ugh.fileformats.opac.PicaPlus;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.ReadException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.fileformats.mets.XStream;
+import ugh.dl.fileformats.opac.PicaPlus;
 
 public class SRUHelper {
     private static final Namespace SRW = Namespace.getNamespace("srw", "http://www.loc.gov/zing/srw/");

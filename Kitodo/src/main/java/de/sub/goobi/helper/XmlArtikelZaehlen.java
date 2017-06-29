@@ -22,7 +22,7 @@ import ugh.dl.DocStruct;
 import ugh.dl.Fileformat;
 import ugh.dl.Metadata;
 import ugh.dl.Person;
-import ugh.exceptions.PreferencesException;
+import ugh.dl.exceptions.PreferencesException;
 
 public class XmlArtikelZaehlen {
     private final ServiceManager serviceManager = new ServiceManager();

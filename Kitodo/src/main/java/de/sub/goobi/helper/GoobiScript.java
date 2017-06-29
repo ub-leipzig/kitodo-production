@@ -43,12 +43,12 @@ import org.kitodo.services.file.FileService;
 import ugh.dl.Fileformat;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
-import ugh.exceptions.DocStructHasNoTypeException;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.exceptions.WriteException;
+import ugh.dl.exceptions.DocStructHasNoTypeException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.ReadException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.WriteException;
 
 // TODO: Delete me, this should be part of the Plugins...
 // TODO: Break this up into multiple classes with a common interface
@@ -169,7 +169,7 @@ public class GoobiScript {
                 myRdf.getDigitalDocument().addAllContentFiles();
                 serviceManager.getFileService().writeMetadataFile(myRdf, proz);
                 Helper.setMeldung("kitodoScriptfield", "ContentFiles updated: ", proz.getTitle());
-            } catch (ugh.exceptions.DocStructHasNoTypeException e) {
+            } catch (ugh.dl.exceptions.DocStructHasNoTypeException e) {
                 Helper.setFehlerMeldung("DocStructHasNoTypeException", e.getMessage());
 
             } catch (Exception e) {
@@ -897,7 +897,7 @@ public class GoobiScript {
                 serviceManager.getFileService().writeMetadataFile(myRdf, proz);
                 Helper.setMeldung("kitodoScriptfield", "ImagePath updated: ", proz.getTitle());
 
-            } catch (ugh.exceptions.DocStructHasNoTypeException e) {
+            } catch (ugh.dl.exceptions.DocStructHasNoTypeException e) {
                 Helper.setFehlerMeldung("DocStructHasNoTypeException", e.getMessage());
             } catch (UghHelperException e) {
                 Helper.setFehlerMeldung("UghHelperException", e.getMessage());

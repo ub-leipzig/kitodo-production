@@ -18,7 +18,7 @@ import ugh.dl.DigitalDocument;
 import ugh.dl.DocStruct;
 import ugh.dl.Fileformat;
 import ugh.dl.Prefs;
-import ugh.exceptions.PreferencesException;
+import ugh.dl.exceptions.PreferencesException;
 
 /**
  * A CopierData object contains all the data the data copier has access to. It

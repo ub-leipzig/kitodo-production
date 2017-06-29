@@ -33,15 +33,15 @@ import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.w3c.dom.Node;
 
-import ugh.dl.DigitalDocument;
-import ugh.dl.DocStruct;
-import ugh.dl.DocStructType;
-import ugh.dl.Fileformat;
-import ugh.dl.Prefs;
-import ugh.exceptions.TypeNotAllowedAsChildException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.fileformats.mets.XStream;
-import ugh.fileformats.opac.PicaPlus;
+import ugh1.dl.DigitalDocument;
+import ugh1.dl.DocStruct;
+import ugh1.dl.DocStructType;
+import ugh1.dl.Fileformat;
+import ugh1.dl.Prefs;
+import ugh.dl.exceptions.TypeNotAllowedAsChildException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.fileformats.mets.XStream;
+import ugh.dl.fileformats.opac.PicaPlus;
 
 /**
  * The class PicaPlugin is the main class of the Goobi PICA catalogue plugin

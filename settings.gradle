@@ -1,0 +1,16 @@
+rootProject.name = 'kitodo-production'
+include ':OpacPica-Plugin'
+include ':kitodo-data-management'
+include ':kitodo-api'
+include ':kitodo-file-management'
+include ':kitodo-persistentidentifier'
+include ':kitodo-ugh'
+include ':kitodo'
+
+project(':OpacPica-Plugin').projectDir = "$rootDir/OpacPica-Plugin" as File
+project(':kitodo-data-management').projectDir = "$rootDir/Kitodo-DataManagement" as File
+project(':kitodo-ugh').projectDir = "$rootDir/kitodo-ugh" as File
+project(':kitodo-api').projectDir = "$rootDir/Kitodo-API" as File
+project(':kitodo-file-management').projectDir = "$rootDir/Kitodo-FileManagement" as File
+project(':kitodo-persistentidentifier').projectDir = "$rootDir/Kitodo-PersistentIdentifier" as File
+project(':kitodo').projectDir = "$rootDir/Kitodo" as File

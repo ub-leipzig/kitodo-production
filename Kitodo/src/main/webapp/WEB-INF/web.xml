@@ -19,8 +19,23 @@
     <display-name>Kitodo</display-name>
 
     <context-param>
+        <param-name>org.apache.myfaces.USE_ENCRYPTION</param-name>
+        <param-value>false</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>log4jConfiguration</param-name>
+        <param-value>file:///etc/kitodo/log4j2.xml</param-value>
+    </context-param>
+
+    <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/metadata-editor-config.xml</param-value>
+        <param-value>WEB-INF/metadata-editor-config.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
+        <param-value>false</param-value>
     </context-param>
 
     <context-param>
@@ -191,6 +206,23 @@
     <filter-mapping>
         <filter-name>Proxy</filter-name>
         <url-pattern>/gnd/*</url-pattern>
+    </filter-mapping>
+
+    <listener>
+        <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>log4jServletFilter</filter-name>
+        <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>log4jServletFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
     <!-- Listener for ImageIO initialization (Tomcat workaround) -->

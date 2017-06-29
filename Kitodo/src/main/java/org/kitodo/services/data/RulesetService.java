@@ -35,7 +35,7 @@ import org.kitodo.data.exceptions.DataException;
 import org.kitodo.services.data.base.TitleSearchService;
 
 import ugh.dl.Prefs;
-import ugh.exceptions.PreferencesException;
+import ugh.dl.exceptions.PreferencesException;
 
 public class RulesetService extends TitleSearchService<Ruleset> {
 

@@ -1,0 +1,261 @@
+import net.researchgate.release.GitAdapter
+
+buildscript {
+    repositories {
+        maven { url "https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/" }
+    }
+    dependencies {
+        classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.1"
+        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+    }
+}
+
+plugins {
+    id 'com.github.hierynomus.license' version '0.13.1'
+    id 'net.researchgate.release' version '2.4.0'
+}
+
+apply plugin: 'com.bmuschko.nexus'
+apply plugin: 'io.codearte.nexus-staging'
+
+allprojects {
+    apply plugin: 'maven'
+
+    group = 'org.kitodo'
+
+    repositories {
+        maven {
+            url "http://central.maven.org/maven2/"
+            artifactUrls "https://maven.atlassian.com/3rdparty/"
+            artifactUrls "http://maven.jahia.org/maven2/"
+            artifactUrls "http://nexus.slub-dresden.de:8081/nexus/content/repositories/public/"
+            artifactUrls "http://nexus.slub-dresden.de:8081/nexus/content/repositories/public/"
+            artifactUrls "http://nexus.slub-dresden.de:8081/nexus/content/repositories/snapshots/"
+            artifactUrls "http://nexus.slub-dresden.de:8081/nexus/content/repositories/releases/"
+        }
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+
+    release {
+        tagTemplate = '$name-$version'
+        scmAdapters = [
+                GitAdapter
+        ]
+
+        git {
+            requireBranch = 'master'
+            pushToRemote = 'origin'
+            pushToBranchPrefix = ''
+            commitVersionFileOnly = false
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'findbugs'
+    apply plugin: 'pmd'
+    apply plugin: 'maven-publish'
+    apply plugin: 'signing'
+    apply plugin: 'checkstyle'
+    apply plugin: 'com.github.hierynomus.license'
+    apply plugin: 'jacoco'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    ext {
+        vendor = 'UB Leipzig'
+        homepage = ''
+        docURL = ''
+        license = 'Apache 2'
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+        slf4jVersion = '1.7.21'
+    }
+
+    test { //show test output
+        testLogging.showStandardStreams = true
+    }
+
+    findbugsTest.enabled = false
+
+    findbugs {
+        ignoreFailures = true //don't fail the gradle build if bugs are found
+    }
+
+    pmd {
+        ruleSets = ["java-basic", "java-braces"]
+        ignoreFailures = true //don't fail the gradle build if rules are broken
+    }
+
+    task processConfig(type: Copy) {
+        from('src/main/cfg') {
+            include '**/*.cfg'
+        }
+        into 'build/cfg/main'
+    }
+
+    task sourceJar(type: Jar) {
+        classifier 'sources'
+        from sourceSets.main.allSource
+    }
+
+
+    task javadocJar(type: Jar) {
+        classifier 'javadoc'
+        from javadoc
+    }
+
+    artifacts {
+        archives javadocJar
+        archives sourceJar
+    }
+
+    classes {
+        classes.dependsOn processConfig
+    }
+
+    checkstyle {
+        configFile = rootProject.file('build/checkstyle/checkstyle.xml')
+        configProperties.checkstyleConfigDir = rootProject.file('build/checkstyle/')
+    }
+
+    jacoco {
+        toolVersion = "0.7.6.201602180812"
+    }
+
+    license {
+        include "**/*.java"
+        header rootProject.file('build/license/HEADER.txt')
+        strictCheck true
+        mapping {
+            java = 'SLASHSTAR_STYLE'
+        }
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+            }
+        }
+    }
+
+    signing {
+        sign configurations.archives
+    }
+
+    uploadArchives {
+        repositories.mavenDeployer {
+            def sonatypeUsername = project.hasProperty('ossrhUsername') ? ossrhUsername : ""
+            def sonatypePassword = project.hasProperty('ossrhPassword') ? ossrhPassword : ""
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                packaging 'jar'
+                url ''
+                inceptionYear '2017'
+                name 'Kitodo Production'
+                description 'Kitodo Production'
+
+                organization {
+                    name project.vendor
+                    url project.homepage
+                }
+
+                developers {
+                    developer {
+                        id ''
+                        name ''
+                        email ''
+                        organization ''
+                        organizationUrl ''
+                        roles {
+                            role 'developer'
+                        }
+                        timezone '+1'
+                    }
+                }
+
+                scm {
+                    connection 'scm:git:git://github.com/kitodo/kitodo-production.git'
+                    developerConnection 'scm:git:git@github.com/kitodo/kitodo-production.git'
+                    url 'https://github.com/kitodo/kitodo-production'
+                    tag 'HEAD'
+                }
+
+                licenses {
+                    license {
+                        name 'Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0'
+                        comments ''
+                    }
+                }
+            }
+        }
+    }
+
+    afterReleaseBuild.dependsOn uploadArchives
+}
+
+configurations {
+    buildToolsConfig
+}
+
+
+dependencies {
+    buildToolsConfig "cool.pandora:pandora-build-tools:0.1.0"
+}
+
+task processBuildTools(type: Copy) {
+    from {
+        configurations.buildToolsConfig.collect {
+            zipTree(it).matching {
+                include 'checkstyle/*.xml'
+                include 'license/*.txt'
+            }
+        }
+    }
+    into 'build'
+}
+
+nexusStaging {
+    packageGroup = "cool.pandora"
+    stagingProfileId = "4d5f13c386f543"
+}
+
+extraArchive {
+    sources = false
+    tests = false
+}
+
+nexus {
+    sign = true
+    repositoryUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'
+    snapshotRepositoryUrl = 'https://oss.sonatype.org/content/repositories/snapshots/'
+}
+
+task docs(type: Javadoc) {
+    source subprojects.collect { project -> project.sourceSets.main.allJava }
+    classpath = files(subprojects.collect { project -> project.sourceSets.main.compileClasspath })
+    destinationDir = new File(projectDir, "docs/${version}")
+}
+
+check.dependsOn processBuildTools
+afterReleaseBuild.dependsOn docs

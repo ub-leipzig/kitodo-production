@@ -44,10 +44,10 @@ import ugh.dl.MetadataType;
 import ugh.dl.Person;
 import ugh.dl.Prefs;
 import ugh.dl.Reference;
-import ugh.exceptions.DocStructHasNoTypeException;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.TypeNotAllowedAsChildException;
-import ugh.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.DocStructHasNoTypeException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.TypeNotAllowedAsChildException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
 
 public class MetadatenHelper implements Comparator<Object> {
     private static final Logger logger = LogManager.getLogger(MetadatenHelper.class);
@@ -515,7 +515,7 @@ public class MetadatenHelper implements Comparator<Object> {
          * Typen und Suchbegriffe festlegen
          */
         HashMap<String, String> types = new HashMap<String, String>();
-        types.put("metsmods", "ugh.fileformats.mets.MetsModsImportExport".toLowerCase());
+        types.put("metsmods", "ugh.dl.fileformats.mets.MetsModsImportExport".toLowerCase());
         types.put("mets", "www.loc.gov/METS/".toLowerCase());
         types.put("rdf", "<RDF:RDF ".toLowerCase());
         types.put("xstream", "<ugh.dl.DigitalDocument>".toLowerCase());

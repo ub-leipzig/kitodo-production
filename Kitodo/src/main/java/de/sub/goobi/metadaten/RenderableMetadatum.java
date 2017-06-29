@@ -26,7 +26,7 @@ import org.kitodo.production.exceptions.UnreachableCodeException;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataGroup;
 import ugh.dl.MetadataType;
-import ugh.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
 
 /**
  * Abstract base class for all kinds of backing beans usable to render input

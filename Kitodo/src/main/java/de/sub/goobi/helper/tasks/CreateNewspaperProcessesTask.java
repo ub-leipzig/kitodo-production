@@ -39,10 +39,10 @@ import org.kitodo.services.ServiceManager;
 import ugh.dl.DigitalDocument;
 import ugh.dl.DocStruct;
 import ugh.dl.Prefs;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.fileformats.mets.MetsModsImportExport;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.fileformats.mets.MetsModsImportExport;
 
 /**
  * The class CreateNewspaperProcessesTask is a LongRunningTask to create

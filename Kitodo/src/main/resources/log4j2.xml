@@ -13,7 +13,7 @@
 -->
 <Configuration monitorInterval="60">
     <Properties>
-        <Property name="filename">/usr/local/kitodo/logs</Property>
+        <Property name="filename">/tmp</Property>
     </Properties>
     <Appenders>
         <Console name="STDOUT" target="SYSTEM_OUT">
@@ -24,10 +24,10 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="de.sub.goobi, de.unigoettingen.sub.search.opac, org.goobi, org.kitodo" level="error">
-            <AppenderRef ref="LOGFILE" level="error" />
+        <Logger name="de.sub.goobi, de.unigoettingen.sub.search.opac, org.goobi, org.kitodo" level="debug">
+            <AppenderRef ref="LOGFILE" level="debug" />
         </Logger>
-        <Root level="error">
+        <Root level="debug">
             <AppenderRef ref="STDOUT"/>
             <AppenderRef ref="LOGFILE"/>
         </Root>

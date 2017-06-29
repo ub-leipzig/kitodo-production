@@ -21,7 +21,7 @@ import org.apache.logging.log4j.Logger;
 import ugh.dl.DocStruct;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
-import ugh.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
 
 /**
  * A LocalMetadataSelector provides methods to retrieve or modify metadata on a

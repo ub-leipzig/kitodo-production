@@ -86,15 +86,15 @@ import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
 import ugh.dl.Person;
 import ugh.dl.Prefs;
-import ugh.exceptions.DocStructHasNoTypeException;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
-import ugh.exceptions.TypeNotAllowedAsChildException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.exceptions.UGHException;
-import ugh.exceptions.WriteException;
-import ugh.fileformats.mets.XStream;
+import ugh.dl.exceptions.DocStructHasNoTypeException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.ReadException;
+import ugh.dl.exceptions.TypeNotAllowedAsChildException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.UGHException;
+import ugh.dl.exceptions.WriteException;
+import ugh.dl.fileformats.mets.XStream;
 
 @Named("ProzesskopieForm")
 @SessionScoped
@@ -1027,7 +1027,7 @@ public class ProzesskopieForm implements Serializable {
                     serviceManager.getFileService().writeMetadataAsTemplateFile(this.myRdf, this.prozessKopie);
                 }
 
-            } catch (ugh.exceptions.DocStructHasNoTypeException e) {
+            } catch (ugh.dl.exceptions.DocStructHasNoTypeException e) {
                 Helper.setFehlerMeldung("DocStructHasNoTypeException", e.getMessage());
                 logger.error("creation of new process throws an error: ", e);
             } catch (UghHelperException e) {

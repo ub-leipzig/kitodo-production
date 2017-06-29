@@ -23,8 +23,8 @@ import org.apache.logging.log4j.Logger;
 import org.kitodo.production.exceptions.UnreachableCodeException;
 
 import ugh.dl.DocStruct;
-import ugh.exceptions.TypeNotAllowedAsChildException;
-import ugh.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.TypeNotAllowedAsChildException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
 
 /**
  * A MetadataPathSelector provides methods to retrieve or modify document

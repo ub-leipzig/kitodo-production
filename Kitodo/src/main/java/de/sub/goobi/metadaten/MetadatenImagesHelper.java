@@ -43,7 +43,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.kitodo.api.filemanagement.ProcessSubType;
 import org.kitodo.data.database.beans.Process;
-import org.kitodo.data.database.exceptions.DAOException;
 import org.kitodo.services.ServiceManager;
 import org.kitodo.services.file.FileService;
 
@@ -56,11 +55,11 @@ import ugh.dl.MetadataType;
 import ugh.dl.Prefs;
 import ugh.dl.Reference;
 import ugh.dl.RomanNumeral;
-import ugh.exceptions.ContentFileNotLinkedException;
-import ugh.exceptions.DocStructHasNoTypeException;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.TypeNotAllowedAsChildException;
-import ugh.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.ContentFileNotLinkedException;
+import ugh.dl.exceptions.DocStructHasNoTypeException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.TypeNotAllowedAsChildException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
 
 public class MetadatenImagesHelper {
     private static final Logger logger = LogManager.getLogger(MetadatenImagesHelper.class);

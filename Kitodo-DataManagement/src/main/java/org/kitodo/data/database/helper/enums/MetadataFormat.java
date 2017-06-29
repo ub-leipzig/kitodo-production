@@ -12,9 +12,9 @@
 package org.kitodo.data.database.helper.enums;
 
 import ugh.dl.Fileformat;
-import ugh.fileformats.excel.RDFFile;
-import ugh.fileformats.mets.MetsMods;
-import ugh.fileformats.mets.XStream;
+import ugh.dl.fileformats.excel.RDFFile;
+import ugh.dl.fileformats.mets.MetsMods;
+import ugh.dl.fileformats.mets.XStream;
 
 public enum MetadataFormat {
 

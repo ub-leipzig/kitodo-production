@@ -39,10 +39,10 @@ import org.kitodo.services.ServiceManager;
 import org.kitodo.services.file.FileService;
 
 import ugh.dl.Fileformat;
-import ugh.exceptions.PreferencesException;
-import ugh.exceptions.ReadException;
-import ugh.exceptions.TypeNotAllowedForParentException;
-import ugh.exceptions.WriteException;
+import ugh.dl.exceptions.PreferencesException;
+import ugh.dl.exceptions.ReadException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.WriteException;
 
 public class ExportPdf extends ExportMets {
     private final ServiceManager serviceManager = new ServiceManager();

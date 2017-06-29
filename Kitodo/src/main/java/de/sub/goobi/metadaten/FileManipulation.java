@@ -44,8 +44,8 @@ import ugh.dl.DocStructType;
 import ugh.dl.Metadata;
 import ugh.dl.MetadataType;
 import ugh.dl.Prefs;
-import ugh.exceptions.MetadataTypeNotAllowedException;
-import ugh.exceptions.TypeNotAllowedForParentException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.TypeNotAllowedForParentException;
 
 public class FileManipulation {
     private static final Logger logger = LogManager.getLogger(FileManipulation.class);

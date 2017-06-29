@@ -28,7 +28,7 @@ import ugh.dl.MetadataGroup;
 import ugh.dl.MetadataGroupType;
 import ugh.dl.MetadataType;
 import ugh.dl.Person;
-import ugh.exceptions.MetadataTypeNotAllowedException;
+import ugh.dl.exceptions.MetadataTypeNotAllowedException;
 
 /**
  * Specialised RenderableMetadataGroup with fixed fields to edit the internal
