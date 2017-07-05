@@ -1,3 +1,4 @@
+
 [submodule "kitodo-ugh"]
 	path = kitodo-ugh
-	url = https://github.com/kitodo/kitodo-ugh.git
+	url = https://github.com/ub-leipzig/kitodo-ugh

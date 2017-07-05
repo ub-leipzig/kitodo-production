@@ -1,4 +1,5 @@
 /*
+ *
  * (c) Kitodo. Key to digital objects e. V. <contact@kitodo.org>
  *
  * This file is part of the Kitodo project.
@@ -8,7 +9,6 @@
  * For the full copyright and license information, please read the
  * GPL3-License.txt file that was distributed with this source code.
  */
-
 package org.kitodo.production.plugin.opac.pica;
 
 import java.util.Collection;
@@ -33,11 +33,11 @@ import org.joda.time.LocalDate;
 import org.joda.time.LocalTime;
 import org.w3c.dom.Node;
 
-import ugh1.dl.DigitalDocument;
-import ugh1.dl.DocStruct;
-import ugh1.dl.DocStructType;
-import ugh1.dl.Fileformat;
-import ugh1.dl.Prefs;
+import ugh.dl.DigitalDocument;
+import ugh.dl.DocStruct;
+import ugh.dl.DocStructType;
+import ugh.dl.Fileformat;
+import ugh.dl.Prefs;
 import ugh.dl.exceptions.TypeNotAllowedAsChildException;
 import ugh.dl.exceptions.TypeNotAllowedForParentException;
 import ugh.dl.fileformats.mets.XStream;

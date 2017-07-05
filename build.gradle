@@ -11,8 +11,9 @@ buildscript {
 }
 
 plugins {
-    id 'com.github.hierynomus.license' version '0.13.1'
+    id 'com.github.hierynomus.license' version '0.14.0'
     id 'net.researchgate.release' version '2.4.0'
+    id 'com.palantir.docker' version '0.13.0'
 }
 
 apply plugin: 'com.bmuschko.nexus'
@@ -124,8 +125,8 @@ subprojects {
     }
 
     checkstyle {
-        configFile = rootProject.file('build/checkstyle/checkstyle.xml')
-        configProperties.checkstyleConfigDir = rootProject.file('build/checkstyle/')
+        configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+        configProperties.checkstyleConfigDir = rootProject.file('config/')
     }
 
     jacoco {
@@ -133,8 +134,19 @@ subprojects {
     }
 
     license {
+        headerDefinitions {
+            custom_definition {
+                firstLine = "//"
+                endLine   = "//"
+                firstLineDetectionPattern = "//"
+                lastLineDetectionPattern  = "//"
+                allowBlankLines = true
+                skipLinePattern = "//"
+                isMultiline = false
+            }
+        }
         include "**/*.java"
-        header rootProject.file('build/license/HEADER.txt')
+        header rootProject.file('licence/HEADER.txt')
         strictCheck true
         mapping {
             java = 'SLASHSTAR_STYLE'
@@ -203,7 +215,7 @@ subprojects {
                 licenses {
                     license {
                         name 'Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0'
+                        url 'http://www.apache.org/licenses/HEADER.txt-2.0'
                         comments ''
                     }
                 }
@@ -257,5 +269,19 @@ task docs(type: Javadoc) {
     destinationDir = new File(projectDir, "docs/${version}")
 }
 
+docker {
+    name "ubl2/kitodo-production:$version"
+    dockerfile file('docker/Dockerfile')
+    copySpec.from("${projectDir}/Kitodo/build/libs/kitodo.war").into("dist")
+    files "${projectDir}/docker/cfg"
+    labels(['key': 'value'])
+    pull true
+    noCache true
+}
+
 check.dependsOn processBuildTools
 afterReleaseBuild.dependsOn docs
+
+task printProps {
+    println version
+}

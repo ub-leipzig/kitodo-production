@@ -1,4 +1,5 @@
 /*
+ *
  * (c) Kitodo. Key to digital objects e. V. <contact@kitodo.org>
  *
  * This file is part of the Kitodo project.
@@ -8,7 +9,6 @@
  * For the full copyright and license information, please read the
  * GPL3-License.txt file that was distributed with this source code.
  */
-
 package org.kitodo.production.plugin.opac.pica;
 
 import java.io.BufferedReader;
@@ -28,10 +28,10 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import ugh1.dl.DocStruct;
-import ugh1.dl.Metadata;
-import ugh1.dl.MetadataType;
-import ugh1.dl.Prefs;
+import ugh.dl.DocStruct;
+import ugh.dl.Metadata;
+import ugh.dl.MetadataType;
+import ugh.dl.Prefs;
 import ugh.dl.exceptions.DocStructHasNoTypeException;
 import ugh.dl.exceptions.MetadataTypeNotAllowedException;
 
@@ -173,7 +173,7 @@ class UGHUtils {
      * the value passed-in is returned. Which mapping is used depends on the
      * availability of a user context, @see {@link #open(String)}.
      *
-     * @param inLanguages
+     * @param inLanguage
      *            values to replace
      * @return replacements
      */

@@ -1,6 +1,7 @@
 group = 'org.kitodo.opacpica-plugin'
 description = ''
 dependencies {
+    compile project(':kitodo-ugh')
     compile group: 'net.xeoh', name: 'plugins-base', version:'1.0.0'
     compile group: 'commons-io', name: 'commons-io', version:'2.5'
     compile group: 'jdom', name: 'jdom', version:'1.0'

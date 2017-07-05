@@ -1,4 +1,5 @@
 /*
+ *
  * (c) Kitodo. Key to digital objects e. V. <contact@kitodo.org>
  *
  * This file is part of the Kitodo project.
@@ -8,7 +9,6 @@
  * For the full copyright and license information, please read the
  * GPL3-License.txt file that was distributed with this source code.
  */
-
 package org.goobi.webapi.beans;
 
 import java.util.regex.Matcher;
